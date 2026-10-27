@@ -1,0 +1,11 @@
+--- a/vendor/mediatek/kernel_modules/connectivity/common/common_main/linux/wmt_step.c
++++ b/vendor/mediatek/kernel_modules/connectivity/common/common_main/linux/wmt_step.c
+@@ -460,7 +460,7 @@
+ {
+ 	int str_to_int = STEP_ACTION_INDEX_NO_DEFINE;
+ 
+-	if (str == NULL || str == '\0')
++	if (str == NULL || *str == '\0')
+ 		return STEP_ACTION_INDEX_NO_DEFINE;
+ 
+ 	str_to_int = wmt_step_get_int_from_four_char(str);

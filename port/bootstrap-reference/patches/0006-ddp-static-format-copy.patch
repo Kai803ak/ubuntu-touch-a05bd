@@ -1,0 +1,11 @@
+--- a/drivers/misc/mediatek/video/mt8168/dispsys/ddp_debug.c
++++ b/drivers/misc/mediatek/video/mt8168/dispsys/ddp_debug.c
+@@ -581,7 +581,7 @@
+ 		static const char temp[] = "set_dsi_cmd:0x%x";
+ 
+ 		memset(fmt, 0, sizeof(fmt));
+-		strncpy((char *)fmt, (char *)temp, sizeof(temp));
++		memcpy(fmt, temp, sizeof(temp));
+ 
+ 		for (i = 0; i < ARRAY_SIZE(para); i++)
+ 			strncat(fmt, ",0x%hhx", sizeof(fmt) - strlen(fmt) - 1);

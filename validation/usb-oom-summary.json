@@ -1,0 +1,19 @@
+{
+  "direct_cause": "adbd OOM kill followed by USB gadget unbind",
+  "adbd_anon_rss_kib": 3848840,
+  "adbd_file_rss_kib": 8096,
+  "battery_percent": 79,
+  "battery_temperature_c": 26,
+  "kernel_continued_after_usb_disconnect": true,
+  "manual_cable_replug_after_initial_oom_seconds": 82,
+  "likely_trigger": "pending input during a large continuous ADB write; exact internal allocator/queue not identified",
+  "fix": "32MiB transfers; wait for dd/fsync exit; memory guards",
+  "fixed_device_full_write_verified": true,
+  "fixed_transfer_one_second_samples": {
+    "samples": 3100,
+    "max_adbd_rss_kib": 27656,
+    "min_mem_available_kib": 3818676,
+    "last_adbd_rss_kib": 14656,
+    "last_mem_available_kib": 3843660
+  }
+}

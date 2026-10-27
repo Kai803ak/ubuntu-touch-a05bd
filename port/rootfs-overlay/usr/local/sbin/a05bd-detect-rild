@@ -1,0 +1,21 @@
+#!/bin/sh
+set -eu
+# The host getprop shim cannot query the Android 9 property service reliably.
+# Use the matching client, preserve upstream's SDK>=26 no-socket-wait rule.
+i=0
+while [ "$i" -lt 15 ]; do
+    sdk=$(/usr/bin/timeout 2 /usr/bin/lxc-attach -n android -- /system/bin/getprop ro.build.version.sdk 2>/dev/null | tr -d '\r') || sdk=
+    case "$sdk" in ''|*[!0-9]*) ;; *)
+        if [ "$sdk" -ge 26 ]; then
+            : > /run/ril_ofono_env
+            echo "Android SDK $sdk: legacy RIL socket wait is unnecessary"
+            exit 0
+        fi
+        echo "Unexpected legacy Android SDK $sdk; upstream detection required" >&2
+        exit 1
+    esac
+    i=$((i + 1))
+    sleep 1
+done
+echo 'Android SDK query did not become ready' >&2
+exit 1

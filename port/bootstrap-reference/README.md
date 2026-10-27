@@ -1,0 +1,1 @@
+このディレクトリーは元ソース/CI rootfs/汎用Haliumの固定URL・SHAと初期kernel patch系列の参照です。最終RC3 kernelの実configと完全変更済みソースはkernel/およびRelease archiveを使用してください。旧build-only deviceinfoやガード付きBOOTの配布設定を最終RC3と混同しないでください。Ubuntu Touch全体の元repositoryはUPSTREAM.mdとpackages.tsvを参照します。

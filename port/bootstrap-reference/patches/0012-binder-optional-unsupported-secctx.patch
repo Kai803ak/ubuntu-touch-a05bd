@@ -1,0 +1,18 @@
+--- a/drivers/android/binder.c
++++ b/drivers/android/binder.c
+@@ -3892,6 +3892,15 @@
+ 
+ 		security_task_getsecid(proc->tsk, &secid);
+ 		ret = security_secid_to_secctx(secid, &secctx, &secctx_sz);
++		/* Legacy AppArmor has no secid_to_secctx hook. Keep ordinary
++		 * Binder mediation, but omit this unsupported optional context.
++		 * Preserve all other errors, including access and allocation errors.
++		 */
++		if (ret == -EOPNOTSUPP) {
++			secctx = NULL;
++			secctx_sz = 0;
++			ret = 0;
++		}
+ 		if (ret) {
+ 			return_error = BR_FAILED_REPLY;
+ 			return_error_param = ret;

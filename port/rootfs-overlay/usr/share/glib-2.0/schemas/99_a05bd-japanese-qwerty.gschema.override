@@ -1,0 +1,4 @@
+[com.lomiri.keyboard.maliit]
+active-language='ja'
+previous-language='en'
+enabled-languages=['ja', 'en', 'emoji']

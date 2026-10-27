@@ -1,0 +1,9 @@
+{
+  "tests_passed": [
+    "low free RAM, high ADB RSS, missing RSS rejected",
+    "bounded multiple chunks, offset, short tail and subsequent bytes preserved",
+    "transport failure propagated without automatic retry"
+  ],
+  "host_mock_only": true,
+  "device_writes": false
+}

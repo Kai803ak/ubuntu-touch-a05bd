@@ -1,0 +1,7 @@
+# RC2とRC3初期開発版の連続転送不具合
+
+2026-10-27のAndroid→Ubuntu実機試験で、systemの連続ADB転送中にRAM環境adbdのRSSが約3.7GiBへ増加し、OOM kill→USB gadget解除→転送中断となった。systemは部分書込みで、通常Ubuntu BOOTへの切替え前に停止した。GPT/vendor/factory/cacheは先に移動・読戻し済みなので、元BOOTだけ戻してAndroidを起動できる状態ではない。
+
+RC2 ZIPを新規導入に使用しない。RC3開発版は32MiBごとの書込み完了待ちとメモリ検査へ変更して再検証中。kernel/OSイメージの変更ではなくPC側installerの転送方式の修正。OOM直後のログでkernelは継続動作し、USB接続の抜差しだけではadbd/gadgetが復帰しなかった。保守用BOOTは残っていたため、電源長押しで既知RAM環境へ起動し直し、各領域を再検査した。
+
+中断時は同じsessionを無条件に再実行しない。GPT、移動済み領域、BOOT、保護firmwareを確認し、部分systemを書き直して全hash照合してからdataと通常BOOTへ進む。

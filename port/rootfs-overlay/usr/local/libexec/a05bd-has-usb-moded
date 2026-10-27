@@ -1,0 +1,5 @@
+#!/bin/sh
+# This port uses a fixed diagnostic USB gadget, without usb-moded.
+# Skip the MTP watcher when its provider is absent, rather than restart forever.
+reply=$(/usr/bin/busctl --system --timeout=2 call org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus NameHasOwner s com.meego.usb_moded 2>/dev/null) || exit 1
+[ "$reply" = 'b true' ]

@@ -1,0 +1,99 @@
+--- a/drivers/misc/mediatek/cmdq/v3/cmdq_helper_ext.c
++++ b/drivers/misc/mediatek/cmdq/v3/cmdq_helper_ext.c
+@@ -132,53 +132,30 @@
+ 	xpr_total = 32,
+ };
+ 
+-static u32 mdp_base[1] = {0};
+-static u32 mdp_sub_base[1] = {0};
+-
++/* Use the platform's existing MDP/ISP register table. The GPL source's
++ * zero-only placeholder rejected every real user-space MDP instruction.
++ * Unknown subsystems and pages still fail validation.
++ */
+ static bool cmdq_mdp_is_reg_valid(const unsigned long pa)
+ {
+ 	u32 base = (u32)(pa & 0xFFFFF000);
+ 	u32 i;
+-	static u32 last_idx;
+-
+-	if (base == mdp_base[last_idx])
+-		return true;
+-
+-	for (i = 0; i < ARRAY_SIZE(mdp_base); i++)
+-		if (base == mdp_base[i]) {
+-			last_idx = i;
++
++	for (i = 0; i < ENGBASE_COUNT; i++) {
++		u32 allowed = cmdq_mdp_get_hw_reg(i, 0);
++
++		if (allowed && base == allowed)
+ 			return true;
+-		}
+-
+-#ifdef CMDQ_DEBUG_ADDR
+-	CMDQ_LOG("[note]blocking pa:%#010lx\n", pa);
+-	return true;
+-#else
++	}
+ 	return false;
+-#endif
+ }
+ 
+ static bool cmdq_mdp_is_sub_valid(u8 subsys, u16 offset)
+ {
+-	u32 base = (offset & 0xF000) | subsys;
+-	u32 i;
+-	static u32 last_idx;
+-
+-	if (base == mdp_sub_base[last_idx])
+-		return true;
+-
+-	for (i = 0; i < ARRAY_SIZE(mdp_sub_base); i++)
+-		if (base == mdp_sub_base[i]) {
+-			last_idx = i;
+-			return true;
+-		}
+-#ifdef CMDQ_DEBUG_ADDR
+-	CMDQ_LOG("[note]blocking subsys:%#04x %#06x\n",
+-		(u32)subsys, (u32)offset);
+-	return true;
+-#else
+-	return false;
+-#endif
++	u32 arg_a = ((u32)subsys << cmdq_get_func()->getSubsysLSBArgA()) |
++		offset;
++
++	return cmdq_mdp_is_reg_valid(cmdq_core_subsys_to_reg_addr(arg_a));
+ }
+ 
+ static bool cmdq_core_check_dma_valid(const unsigned long pa)
+--- a/drivers/misc/mediatek/cmdq/v3/cmdq_mdp_common.c
++++ b/drivers/misc/mediatek/cmdq/v3/cmdq_mdp_common.c
+@@ -1240,13 +1240,7 @@
+ 	}
+ 	CMDQ_SYSTRACE_END();
+ 
+-	CMDQ_TRACE_FORCE_BEGIN("%s check copy %u\n", __func__, copy_size);
+-	if (user_space && !cmdq_core_check_user_valid(
+-		(void *)(unsigned long)desc->pVABase, copy_size, handle)) {
+-		CMDQ_TRACE_FORCE_END();
+-		return -EFAULT;
+-	}
+-	CMDQ_TRACE_FORCE_END();
++	/* check_user_valid above also appends the commands: do not copy twice. */
+ 
+ 	if (desc->regRequest.count &&
+ 			desc->regRequest.count <= CMDQ_MAX_DUMP_REG_COUNT &&
+--- a/drivers/misc/mediatek/cmdq/v3/cmdq_driver.c
++++ b/drivers/misc/mediatek/cmdq/v3/cmdq_driver.c
+@@ -721,7 +721,8 @@
+ 	}
+ 
+ 	if (job.command.regRequest.count > CMDQ_MAX_DUMP_REG_COUNT ||
+-		!job.command.blockSize ||
++		job.command.blockSize < 2 * CMDQ_INST_SIZE ||
++		job.command.blockSize % CMDQ_INST_SIZE ||
+ 		job.command.blockSize > CMDQ_MAX_COMMAND_SIZE ||
+ 		job.command.prop_size > CMDQ_MAX_USER_PROP_SIZE) {
+ 		CMDQ_ERR(

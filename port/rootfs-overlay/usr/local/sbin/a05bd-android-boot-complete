@@ -1,0 +1,16 @@
+#!/bin/sh
+set -eu
+# Use the container's matching property client, not the host compatibility shim.
+i=0
+while [ "$i" -lt 30 ]; do
+    if /usr/bin/lxc-attach -n android -- /system/bin/setprop dev.bootcomplete 1; then
+        /usr/bin/lxc-attach -n android -- /system/bin/setprop sys.boot_completed 1
+        /usr/bin/lxc-attach -n android -- /system/bin/setprop init.svc.bootanim stopped
+        test "$(/usr/bin/lxc-attach -n android -- /system/bin/getprop sys.boot_completed)" = 1
+        exit 0
+    fi
+    i=$((i + 1))
+    sleep 1
+done
+echo 'Android property service not ready after 30 attempts' >&2
+exit 1

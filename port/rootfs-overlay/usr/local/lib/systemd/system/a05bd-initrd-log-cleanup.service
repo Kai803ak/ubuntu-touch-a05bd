@@ -1,0 +1,11 @@
+[Unit]
+Description=Stop orphan A05BD initrd diagnostic logger
+After=local-fs.target
+Before=multi-user.target
+ConditionPathExists=/run/a05bd-log.pid
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/a05bd-stop-initrd-log
+RemainAfterExit=yes
+[Install]
+WantedBy=multi-user.target

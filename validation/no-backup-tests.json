@@ -1,0 +1,12 @@
+{
+  "tests_passed": [
+    "vendor full source/destination SHA equal; source preserved",
+    "factory full source/destination SHA equal; source preserved",
+    "cache full source/destination SHA equal; source preserved",
+    "overlapping destination refused before copy",
+    "unchanged layout needs no relocation"
+  ],
+  "fixtures_only": true,
+  "block_device_writes": false,
+  "busybox_sha256": "27ba89e925a4d9cf0406c4daf4a4bfaca78f71dfc1ef11746c4a8a4f819621c8"
+}

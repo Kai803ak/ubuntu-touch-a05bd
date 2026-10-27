@@ -1,0 +1,14 @@
+{
+  "bytes": 14989312,
+  "sha256": "2cf7441c6295461945cfc1e69c9d5b5d78c67506cf21c7393a96c10981ba6f22",
+  "kernel_sha256": "bfb501fe4aba8eb573759403138e90f344970fa55514a35070e1a0f37e10f446",
+  "reset_protocol": "A05BD_FACTORY_RESET_V2",
+  "cmdline": "systemd.unified_cgroup_hierarchy=0 boot=halium datapart=/dev/mmcblk0p32 systempart=/dev/mmcblk0p28:rw androidboot.hardware=mt8168 bootopt=64S3,32N2,64N2",
+  "usb_root_debug": true,
+  "changed_initrd_entries": [
+    "init",
+    "scripts/a05bd-factory-reset"
+  ],
+  "removed_initrd_entries": [],
+  "status": "BUILT_NOT_DEVICE_TESTED"
+}

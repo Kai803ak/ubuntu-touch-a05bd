@@ -1,0 +1,15 @@
+--- a/vendor/mediatek/kernel_modules/connectivity/wlan/core/gen4m/Makefile
++++ b/vendor/mediatek/kernel_modules/connectivity/wlan/core/gen4m/Makefile
+@@ -16,6 +16,12 @@
+ # ---------------------------------------------------
+ # Compile Options
+ # ---------------------------------------------------
++# DMA descriptors have 32-bit alignment in Device memory. GCC may merge
++# adjacent fields into an unaligned 64-bit store unless strict alignment is used.
++ifeq ($(CONFIG_ARM64),y)
++ccflags-y += -mstrict-align
++endif
++
+ WLAN_CHIP_LIST:=-UMT6620 -UMT6628 -UMT5931 -UMT6630 -UMT6632 -UMT7663 -UCONNAC -UCONNAC2X2 -UUT_TEST_MODE
+ # '-D' and '-U' options are processed in the order they are given on the command line.
+ # All '-imacros file' and '-include file' options are processed after all '-D' and '-U' options.

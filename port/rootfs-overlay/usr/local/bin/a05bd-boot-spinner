@@ -1,0 +1,5 @@
+#!/bin/sh
+# Limit the legacy spinner's lowercase orientation workaround to this process.
+export DEVICEINFO_DEVICE_PATH=/usr/local/share/a05bd-spinner/deviceinfo
+export DEVICEINFO_DEVICE_NAME=a05bd
+exec /usr/bin/lomiri-system-compositor-spinner "$@"

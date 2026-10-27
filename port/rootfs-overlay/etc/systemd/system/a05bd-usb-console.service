@@ -1,0 +1,21 @@
+[Unit]
+Description=Temporary A05BD USB serial debug console
+DefaultDependencies=no
+Requires=a05bd-usb.service
+After=a05bd-usb.service
+Before=sysinit.target
+Conflicts=shutdown.target
+Before=shutdown.target
+[Service]
+Type=simple
+ExecStart=/usr/local/sbin/a05bd-console
+Restart=always
+RestartSec=2
+StandardInput=tty-force
+StandardOutput=tty
+StandardError=tty
+TTYPath=/dev/ttyGS0
+TTYReset=yes
+TTYVHangup=yes
+[Install]
+WantedBy=sysinit.target

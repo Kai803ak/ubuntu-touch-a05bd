@@ -1,0 +1,20 @@
+--- a/vendor/mediatek/kernel_modules/connectivity/wlan/core/gen4m/chips/common/fw_dl.c
++++ b/vendor/mediatek/kernel_modules/connectivity/wlan/core/gen4m/chips/common/fw_dl.c
+@@ -1590,7 +1590,7 @@
+ 		       prTailers[u4SecIdx].feature_set);
+ 
+ 		kalMemZero(aucBuf, 32);
+-		kalStrnCpy(aucBuf, prTailers[u4SecIdx].ram_version,
++		kalMemCopy(aucBuf, prTailers[u4SecIdx].ram_version,
+ 			   sizeof(prTailers[u4SecIdx].ram_version));
+ 		DBGLOG(INIT, INFO, "date[%s] version[%s]\n",
+ 		       prTailers[u4SecIdx].ram_built_date, aucBuf);
+@@ -1626,7 +1626,7 @@
+ 	       prComTailer->ucEcoCode + 1, prComTailer->ucRegionNum);
+ 
+ 	kalMemZero(aucBuf, 32);
+-	kalStrnCpy(aucBuf, prComTailer->aucRamVersion,
++	kalMemCopy(aucBuf, prComTailer->aucRamVersion,
+ 		   sizeof(prComTailer->aucRamVersion));
+ 	DBGLOG(INIT, INFO, "date[%s] version[%s]\n",
+ 	       prComTailer->aucRamBuiltDate, aucBuf);

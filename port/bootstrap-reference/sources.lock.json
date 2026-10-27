@@ -1,0 +1,42 @@
+{
+  "kernel": {
+    "url": "https://codeload.github.com/s1204IT/CTX_GPL_LGPL_Src/tar.gz/b7dc3615e75c4045e52fc18f625c69ab275fe857",
+    "filename": "gpl-source.tar.gz",
+    "sha256": "f86cec0e1ca0272bb6d4e8fdf2bd7928ce5698b38a5056df04709de10545aaab",
+    "commit": "b7dc3615e75c4045e52fc18f625c69ab275fe857",
+    "archive_prefix": "CTX_GPL_LGPL_Src-b7dc3615e75c4045e52fc18f625c69ab275fe857"
+  },
+  "initrd": {
+    "url": "https://github.com/Halium/initramfs-tools-halium/releases/download/dynparts/initrd.img-touch-arm64",
+    "filename": "initrd.img-touch-arm64",
+    "sha256": "da1073d025e3ffca88b70463841509260e364771ce0733ed76a0b6eaf7eedc8e"
+  },
+  "rootfs": {
+    "url": "https://ci.ubports.com/job/ubuntu-touch-rootfs/job/ubports%252F24.04-2.x/130/artifact/ubuntu-touch-android9plus-rootfs-arm64.tar.gz",
+    "bytes": 971473952,
+    "sha256": "3c93b60d1e53c2a0eac367cd6887296940b1b21c4fa0f1f806a842efcb611e87",
+    "upstream_build": 130,
+    "locally_built": false,
+    "filename": "ubuntu-touch-android9plus-rootfs-arm64.tar.gz"
+  },
+  "halium9": {
+    "url": "https://ci.ubports.com/job/UBportsCommunityPortsJenkinsCI/job/ubports%252Fporting%252Fcommunity-ports%252Fjenkins-ci%252Fgeneric_arm64/job/main/1569/artifact/halium_halium_arm64.tar.xz",
+    "bytes": 149399904,
+    "sha256": "10fb312c3e4b82c31f716308f41df5e18ff0c38239149177ed2ebd7615bbb06a",
+    "upstream_build": 1569,
+    "locally_built": false,
+    "filename": "halium_halium_arm64.tar.xz"
+  },
+  "tools": {
+    "halium_adaptation_commit": "dd1afd8efc5bb895efc313b61960bd6537dee24a",
+    "mkbootimg_commit": "40a19c4c5ffe8b86c6c61318c8aa4ffe35d6e7ad",
+    "mkdtboimg_url": "https://raw.githubusercontent.com/LineageOS/android_system_libufdt/lineage-20.0/utils/src/mkdtboimg.py",
+    "mkdtboimg_sha256": "ecc113f74862e86dfa20acbe2b0ecebef5f41b8f634554726f554f6cac70210a"
+  },
+  "build_environment": {
+    "guest": "Ubuntu 22.04 aarch64",
+    "compiler": "gcc-9 9.5.0",
+    "lima": "2.2.1",
+    "kernel_build_timestamp": "Mon Oct 19 00:00:00 UTC 2026"
+  }
+}

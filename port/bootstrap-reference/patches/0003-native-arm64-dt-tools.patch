@@ -1,0 +1,29 @@
+--- a/scripts/Makefile.lib
++++ b/scripts/Makefile.lib
+@@ -309,10 +309,11 @@
+ $(obj)/%.dtb.S: $(obj)/%.dtb
+ 	$(call cmd,dt_S_dtb)
+ 
++DTC_OVERLAY ?= $(srctree)/scripts/dtc/dtc_overlay
+ quiet_cmd_dtc = DTC     $@
+ cmd_dtc = mkdir -p $(dir ${dtc-tmp}) ; \
+ 	$(CPP) $(dtc_cpp_flags) -x assembler-with-cpp -o $(dtc-tmp) $< ; \
+-	$(srctree)/scripts/dtc/dtc_overlay -@ -O dtb -o $@ -b 0 \
++	$(DTC_OVERLAY) -@ -O dtb -o $@ -b 0 \
+ 		$(addprefix -i,$(dir $<) $(DTC_INCLUDE)) $(DTC_FLAGS) \
+ 		-d $(depfile).dtc.tmp $(dtc-tmp) ; \
+ 	cat $(depfile).pre.tmp $(depfile).dtc.tmp > $(depfile)
+--- a/scripts/drvgen/drvgen.mk
++++ b/scripts/drvgen/drvgen.mk
+@@ -65,9 +65,10 @@
+ 	done
+ 
+ ifeq ($(filter $(strip $(CONFIG_BUILD_ARM_DTB_OVERLAY_IMAGE)) $(strip $(CONFIG_BUILD_ARM64_DTB_OVERLAY_IMAGE)), y), y)
++UFDT_APPLY_OVERLAY ?= $(srctree)/scripts/dtc/ufdt_apply_overlay
+ dtbo_check: $(MAIN_DTB_NAMES) $(PROJ_DTB_NAMES)
+ 	for i in $(PROJ_DTB_FILES); do \
+-		$(srctree)/scripts/dtc/ufdt_apply_overlay $(MAIN_DTB_FILES) $$i $$i.merge;\
++		$(UFDT_APPLY_OVERLAY) $(MAIN_DTB_FILES) $$i $$i.merge;\
+ 	done
+ 
+ my_dtbo_id := 0

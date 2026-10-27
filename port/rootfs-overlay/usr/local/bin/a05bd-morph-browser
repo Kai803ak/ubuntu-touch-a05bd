@@ -1,0 +1,45 @@
+#!/usr/bin/python3
+"""Select the validated A05BD runtime for Morph only; keep its profile and URLs."""
+import os
+import shlex
+from pathlib import Path
+
+runtime = '/usr/local/lib/a05bd-webengine-candidate-r5'
+env = os.environ
+env['LD_LIBRARY_PATH'] = runtime + '/lib' + (':' + env['LD_LIBRARY_PATH'] if env.get('LD_LIBRARY_PATH') else '')
+env['QML_IMPORT_PATH'] = runtime + '/qml' + (':' + env['QML_IMPORT_PATH'] if env.get('QML_IMPORT_PATH') else '')
+env['QTWEBENGINEPROCESS_PATH'] = runtime + '/libexec/QtWebEngineProcess'
+env['QTWEBENGINE_RESOURCES_PATH'] = runtime + '/resources'
+env['QTWEBENGINE_LOCALES_PATH'] = runtime + '/locales'
+env['A05BD_ION_HW_DECODE'] = '1'
+env['A05BD_ION_CAPTURE_CACHED'] = '1'
+env['QSG_RENDER_LOOP'] = 'basic'
+padding = '/usr/lib/aarch64-linux-gnu/libtls-padding.so'
+preloads = env.get('LD_PRELOAD', '').split()
+if padding not in preloads:
+    preloads.append(padding)
+env['LD_PRELOAD'] = ' '.join(preloads)
+
+flags = shlex.split(env.get('QTWEBENGINE_CHROMIUM_FLAGS', ''))
+features = []
+other = []
+for flag in flags:
+    if flag.startswith('--enable-features='):
+        features.extend(flag.split('=', 1)[1].split(','))
+    else:
+        other.append(flag)
+for feature in ['MojoVideoDecoder', 'AcceleratedVideoDecoder', 'OverlayScrollbar']:
+    if feature not in features:
+        features.append(feature)
+other.append('--enable-features=' + ','.join(features))
+env['QTWEBENGINE_CHROMIUM_FLAGS'] = shlex.join(other)
+
+try:
+    confined = Path('/proc/self/attr/current').read_text().startswith('morph-browser ')
+except OSError:
+    confined = False
+args = ['/usr/bin/morph-browser', *os.sys.argv[1:]]
+if confined:
+    os.execv(args[0], args)
+else:
+    os.execv('/usr/bin/aa-exec', ['aa-exec', '-p', 'morph-browser', '--', *args])

@@ -1,0 +1,20 @@
+#!/usr/bin/python3
+"""Stop only the orphan diagnostic logger, never a watchdog feeder."""
+from pathlib import Path
+import os,signal
+p=Path('/run/a05bd-log.pid')
+if not p.exists():raise SystemExit(0)
+text=p.read_text().strip()
+if not text.isdecimal():raise RuntimeError('Invalid diagnostic PID')
+pid=int(text)
+if pid<=1:raise RuntimeError('Refuse init')
+r=Path('/proc')/str(pid)
+if not r.exists():raise SystemExit(0)
+cmd=(r/'cmdline').read_bytes().split(b'\0')
+if cmd[:2]!=[b'/bin/sh',b'/init']:raise RuntimeError('PID is not the initrd diagnostic shell')
+if os.readlink(r/'fd/1')!='/dev/ttyGS0':raise RuntimeError('Not the diagnostic console logger')
+if (r/'fd/9').exists():raise RuntimeError('Refuse a watchdog owner')
+if (r/'root').stat().st_dev==Path('/').stat().st_dev:raise RuntimeError('Not an orphan initrd root')
+if (r/'root/bin/sleep').exists():raise RuntimeError('Initrd still active; refuse early termination')
+os.kill(pid,signal.SIGTERM)
+print('Stopped orphan initrd diagnostic logger',pid)

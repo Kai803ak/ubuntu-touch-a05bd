@@ -1,0 +1,14 @@
+*.zip
+*.zip.part*
+*.img
+*.img.gz
+*.qcow2
+*.tar.gz
+*.tar.xz
+*.tgz
+__pycache__/
+.DS_Store
+private/
+backups/
+/build/
+/out/

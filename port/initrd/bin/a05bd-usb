@@ -1,0 +1,18 @@
+#!/bin/sh
+# Temporary USB-only diagnostic console for initial Ubuntu Touch bring-up.
+mkdir -p /sys/kernel/config
+grep -q " /sys/kernel/config " /proc/mounts || mount -t configfs configfs /sys/kernel/config
+G=/sys/kernel/config/usb_gadget/a05bd_ut
+mkdir -p "$G"
+if [ -z "$(cat "$G/UDC")" ]; then
+ printf 0x18d1 > "$G/idVendor"
+ printf 0xd001 > "$G/idProduct"
+ mkdir -p "$G/strings/0x409" "$G/configs/c.1/strings/0x409" "$G/functions/acm.usb0"
+ printf a05bd-ut > "$G/strings/0x409/serialnumber"
+ printf UBports-test > "$G/strings/0x409/manufacturer"
+ printf A05BD-Ubuntu-Touch-test > "$G/strings/0x409/product"
+ printf Diagnostic-serial > "$G/configs/c.1/strings/0x409/configuration"
+ printf 100 > "$G/configs/c.1/MaxPower"
+ [ -e "$G/configs/c.1/acm.usb0" ] || ln -s "$G/functions/acm.usb0" "$G/configs/c.1/acm.usb0"
+ for U in /sys/class/udc/*; do [ -e "$U" ] || continue; printf '%s' "${U##*/}" > "$G/UDC"; break; done
+fi

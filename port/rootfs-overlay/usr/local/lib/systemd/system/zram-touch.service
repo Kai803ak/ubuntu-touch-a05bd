@@ -1,0 +1,13 @@
+[Unit]
+# Full local override: dependency lists cannot be cleared by a drop-in.
+Description=A05BD compressed RAM swap
+After=lxc@android.service
+Wants=lxc@android.service
+[Service]
+Type=oneshot
+ExecCondition=/usr/bin/test -b /dev/zram0
+ExecStart=/usr/local/sbin/a05bd-zram-swap
+RemainAfterExit=yes
+TimeoutStartSec=15s
+[Install]
+WantedBy=multi-user.target

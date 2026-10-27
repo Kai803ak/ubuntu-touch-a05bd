@@ -1,0 +1,77 @@
+{
+  "android_initial_setup_confirmed_by_user": true,
+  "installation": "Android original geometry -> Ubuntu geometry verified; initial continuous transfer OOM; reviewed recovery using fixed bounded transfers",
+  "all_images_readback_verified": true,
+  "new_full_backup_created": false,
+  "boot_image_sha256": "2cf7441c6295461945cfc1e69c9d5b5d78c67506cf21c7393a96c10981ba6f22",
+  "root_device": "/dev/mmcblk0p28 /      ext4",
+  "userdata_device": "/dev/mmcblk0p32 /userdata ext4",
+  "partitions": {
+    "28": {
+      "start": "576512",
+      "sectors": "12582912"
+    },
+    "29": {
+      "start": "13159424",
+      "sectors": "1740800"
+    },
+    "30": {
+      "start": "14900224",
+      "sectors": "32768"
+    },
+    "31": {
+      "start": "14932992",
+      "sectors": "307200"
+    },
+    "32": {
+      "start": "15240192",
+      "sectors": "15295455"
+    }
+  },
+  "services_active": [
+    "lightdm",
+    "lxc@android",
+    "NetworkManager",
+    "repowerd",
+    "sensorfwd",
+    "a05bd-camera-orientation",
+    "zram-touch"
+  ],
+  "failed_system_units": 0,
+  "zram_kib": 2097148,
+  "chassis": "tablet",
+  "wifi_scan_rows": 101,
+  "saved_network_profiles": 0,
+  "reset_v2_precheck_passed": true,
+  "reset_v2_actual_test": {
+    "new_boot_id": true,
+    "canaries_removed": 2,
+    "completed_stamp": true,
+    "pending_requests_removed": true,
+    "userdata_uuid_preserved": true,
+    "static_port_files_preserved": 8,
+    "result": "FACTORY_RESET_V2_DEVICE_VERIFIED"
+  },
+  "fresh_ubuntu_ui_confirmation": "User confirmed display/touch correct and Japanese Next progressed",
+  "full_backup_restore_preserve_modes": "not exercised in this run",
+  "memory_transfer": {
+    "samples": 3100,
+    "max_adbd_rss_kib": 27656,
+    "min_mem_available_kib": 3818676,
+    "last_adbd_rss_kib": 14656,
+    "last_mem_available_kib": 3843660
+  },
+  "after_reset_services_active": [
+    "lightdm",
+    "lxc@android",
+    "NetworkManager",
+    "repowerd",
+    "sensorfwd",
+    "a05bd-camera-orientation",
+    "zram-touch"
+  ],
+  "after_reset_wifi_scan_rows": 96,
+  "after_reset_failed_system_units": 0,
+  "after_reset_saved_network_profiles": 0,
+  "final_initial_setup_screen": "confirmed by user; setup left uncompleted"
+}

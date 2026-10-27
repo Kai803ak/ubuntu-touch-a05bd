@@ -1,0 +1,41 @@
+--- a/drivers/misc/mediatek/cmdq/v3/cmdq_driver.c
++++ b/drivers/misc/mediatek/cmdq/v3/cmdq_driver.c
+@@ -29,6 +29,8 @@
+ #endif
+ 
+ #include <linux/kernel.h>
++#include <linux/capability.h>
++#include <linux/cred.h>
+ #include <linux/module.h>
+ #include <linux/platform_device.h>
+ #include <linux/pm.h>
+@@ -1069,17 +1071,28 @@
+ 	case CMDQ_IOCTL_QUERY_USAGE:
+ 		status = cmdq_driver_ioctl_query_usage(pf, param);
+ 		break;
+-#if 0
++	/* Android camera HAL still uses the legacy async ABI. Keep it limited
++	 * to cameraserver (AID_CAMERASERVER=1047) and privileged diagnostics.
++	 * Do not expose the disabled legacy raw readback ioctls.
++	 */
+ 	case CMDQ_IOCTL_ASYNC_JOB_EXEC:
++		BUILD_BUG_ON(sizeof(struct cmdqJobStruct) != 512);
++		if (!capable(CAP_SYS_ADMIN) &&
++		    !uid_eq(current_euid(), KUIDT_INIT(1047)))
++			return -EPERM;
+ 		CMDQ_SYSTRACE_BEGIN("%s_async_job_exec\n", __func__);
+ 		status = cmdq_driver_ioctl_async_job_exec(pf, param);
+ 		CMDQ_SYSTRACE_END();
+ 		break;
+ 	case CMDQ_IOCTL_ASYNC_JOB_WAIT_AND_CLOSE:
++		if (!capable(CAP_SYS_ADMIN) &&
++		    !uid_eq(current_euid(), KUIDT_INIT(1047)))
++			return -EPERM;
+ 		CMDQ_SYSTRACE_BEGIN("%s_async_job_wait_and_close\n", __func__);
+ 		status = cmdq_driver_ioctl_async_job_wait_and_close(param);
+ 		CMDQ_SYSTRACE_END();
+ 		break;
++#if 0
+ 	case CMDQ_IOCTL_ALLOC_WRITE_ADDRESS:
+ 		status = cmdq_driver_ioctl_alloc_write_address(pf, param);
+ 		break;

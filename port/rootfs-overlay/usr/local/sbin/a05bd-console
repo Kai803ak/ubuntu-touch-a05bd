@@ -1,0 +1,8 @@
+#!/bin/bash
+export TERM=vt100 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+stty -F /dev/ttyGS0 115200 sane -echo -ixon -ixoff -ixany
+printf '\nA05BD_UBUNTU_SYSTEMD_CONSOLE\n'
+uname -r
+cat /etc/os-release
+printf '\nUbuntu root filesystem: '; findmnt -n -o SOURCE /
+exec /bin/bash --noprofile --norc -i

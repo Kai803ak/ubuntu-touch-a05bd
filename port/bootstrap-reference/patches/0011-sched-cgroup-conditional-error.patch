@@ -1,0 +1,12 @@
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -7849,8 +7849,8 @@
+ 
+ #if defined(CONFIG_UCLAMP_TASK_GROUP) && !defined(CONFIG_SCHED_TUNE)
+ 	if (!alloc_uclamp_sched_group(tg, parent))
+-#endif
+ 		goto err;
++#endif
+ 
+ 	return tg;
+ 

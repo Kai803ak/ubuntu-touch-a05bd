@@ -1,0 +1,12 @@
+--- a/init/initramfs.c
++++ b/init/initramfs.c
+@@ -614,7 +614,8 @@
+ {
+ 	if (*str)
+ 		return 0;
+-	do_skip_initramfs = 1;
++	/* This bootloader injects skip_initramfs; Halium must run its initrd. */
++	do_skip_initramfs = 0;
+ 	return 1;
+ }
+ __setup("skip_initramfs", skip_initramfs_param);

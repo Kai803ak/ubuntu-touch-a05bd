@@ -1,0 +1,5 @@
+{
+  "platform": "macOS",
+  "scoped_PreventUserIdleSystemSleep_assertion_verified": true,
+  "global_power_settings_changed": false
+}

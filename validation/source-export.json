@@ -1,0 +1,50 @@
+[
+  {
+    "archive": "qt6-webengine-6.11.2-a05bd-r5-source.tar.gz",
+    "entries": 294876,
+    "exported_files": [
+      "LICENSE.Chromium",
+      "licenseRule.json",
+      "src/3rdparty/chromium/media/gpu/BUILD.gn",
+      "src/3rdparty/chromium/media/gpu/a05bd/a05bd_ion_video_decoder.cc",
+      "src/3rdparty/chromium/media/gpu/a05bd/a05bd_ion_video_decoder.h",
+      "src/3rdparty/chromium/media/gpu/args.gni",
+      "src/3rdparty/chromium/media/media_options.gni",
+      "src/3rdparty/chromium/media/mojo/services/BUILD.gn",
+      "src/3rdparty/chromium/media/mojo/services/gpu_mojo_media_client_a05bd.cc",
+      "src/core/CMakeLists.txt"
+    ],
+    "unexpected_private_paths": [],
+    "exported_sha256": {
+      "LICENSE.Chromium": "f34787ef0342c614b667186a6ec2f5d6b9d650e30142a2788a589a89743e88e9",
+      "licenseRule.json": "052ed9ac0b339845e0e70274e80e7712b749fe270db76532f860a9a48ea5eeef",
+      "src/3rdparty/chromium/media/gpu/BUILD.gn": "39dfa9c0e470ba52c3c6940274d2664254392279bf6eb3d0340d968148ca4fdf",
+      "src/3rdparty/chromium/media/gpu/a05bd/a05bd_ion_video_decoder.cc": "8d9cb19aea069fb082483bbc957a059e88ad436bbab91c067bf1aebdb9d54c10",
+      "src/3rdparty/chromium/media/gpu/a05bd/a05bd_ion_video_decoder.h": "9346c162cb2a2aee6d63f2d9412282ff695da7357bc6b2567bbe3999ad4d8dbc",
+      "src/3rdparty/chromium/media/gpu/args.gni": "70f0b740ec3b11628033534b68edfa068364e549b5d47f5d55bd93ab83d9d11f",
+      "src/3rdparty/chromium/media/media_options.gni": "8118c6f04db0e60614d15c7a76bab4134c8b0bb72ea5657ab4543ee141c24c6a",
+      "src/3rdparty/chromium/media/mojo/services/BUILD.gn": "45e29624132e85be61d610d9bf874acfbfcc8b2ef977406494d54b4c173141de",
+      "src/3rdparty/chromium/media/mojo/services/gpu_mojo_media_client_a05bd.cc": "a7dd604e5c275b02c8165447549641727763a85668674b5d2f56fcd126f290c2",
+      "src/core/CMakeLists.txt": "a08d936c125ad490846ebdf6b2ed470c7667dd496bbcc9fdfc7a80dc33d16a70"
+    }
+  },
+  {
+    "archive": "kernel-4.14.87-a05bd-6-source.tar.gz",
+    "entries": 70666,
+    "exported_files": [
+      "kernel-build-inputs/Image.gz.sha256",
+      "kernel-build-inputs/build-original-paths.sh",
+      "kernel-build-inputs/compile.h",
+      "kernel-build-inputs/compiler.txt",
+      "kernel-build-inputs/kernel.config"
+    ],
+    "unexpected_private_paths": [],
+    "exported_sha256": {
+      "kernel-build-inputs/Image.gz.sha256": "42ef1419ed5cfcd5772bb551421d4e9629985ffe3137d2aea0564221d7352149",
+      "kernel-build-inputs/build-original-paths.sh": "62d28a60f8916e721b41dc82a53a839e1e6e302878ad1df23e90d4b6349e3e3b",
+      "kernel-build-inputs/compile.h": "17843bf0af045ff65b89b9e9b622cb93cb9a7a1c1832465294db5006026b40a3",
+      "kernel-build-inputs/compiler.txt": "8d3bf99e3a54c9d6134e55b4e001e22626967ddf236a0ccef1fbbc612079bcda",
+      "kernel-build-inputs/kernel.config": "f07dfa308e0d2a378d49e52a004c38bf3dfc693beca913c64abc9f71e8a9b6a5"
+    }
+  }
+]

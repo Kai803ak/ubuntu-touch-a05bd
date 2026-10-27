@@ -1,0 +1,46 @@
+{
+  "experimental": true,
+  "runtime_opt_in": "A05BD_ION_HW_DECODE=1",
+  "files": [
+    {
+      "path": "src/3rdparty/chromium/media/media_options.gni",
+      "before_sha256": "46261afe7a88fc6b3e95cce4aa803ab12f26cf05a5624dbe67254bff74a7e30a",
+      "after_sha256": "8118c6f04db0e60614d15c7a76bab4134c8b0bb72ea5657ab4543ee141c24c6a"
+    },
+    {
+      "path": "src/3rdparty/chromium/media/gpu/args.gni",
+      "before_sha256": "59136cb757152be2e7b0d1fd89411689be972308caeb211cd0f202851d5e4be0",
+      "after_sha256": "70f0b740ec3b11628033534b68edfa068364e549b5d47f5d55bd93ab83d9d11f"
+    },
+    {
+      "path": "src/3rdparty/chromium/media/gpu/BUILD.gn",
+      "before_sha256": "27831d1bfb46593c61dab3fc838840f25970c4c1e4b394bc200e964a21905b72",
+      "after_sha256": "39dfa9c0e470ba52c3c6940274d2664254392279bf6eb3d0340d968148ca4fdf"
+    },
+    {
+      "path": "src/3rdparty/chromium/media/mojo/services/BUILD.gn",
+      "before_sha256": "852718cf6f9e8410d51805092be464dadc825f1f63041cd929c8ae095bad3f51",
+      "after_sha256": "45e29624132e85be61d610d9bf874acfbfcc8b2ef977406494d54b4c173141de"
+    },
+    {
+      "path": "src/core/CMakeLists.txt",
+      "before_sha256": "b9a964443de5c97bae0f0bbbc98cff7564ee772ed013c9ae27db9700baedb1bf",
+      "after_sha256": "a08d936c125ad490846ebdf6b2ed470c7667dd496bbcc9fdfc7a80dc33d16a70"
+    },
+    {
+      "path": "src/3rdparty/chromium/media/gpu/a05bd/a05bd_ion_video_decoder.cc",
+      "before_sha256": null,
+      "after_sha256": "8d9cb19aea069fb082483bbc957a059e88ad436bbab91c067bf1aebdb9d54c10"
+    },
+    {
+      "path": "src/3rdparty/chromium/media/gpu/a05bd/a05bd_ion_video_decoder.h",
+      "before_sha256": null,
+      "after_sha256": "9346c162cb2a2aee6d63f2d9412282ff695da7357bc6b2567bbe3999ad4d8dbc"
+    },
+    {
+      "path": "src/3rdparty/chromium/media/mojo/services/gpu_mojo_media_client_a05bd.cc",
+      "before_sha256": null,
+      "after_sha256": "a7dd604e5c275b02c8165447549641727763a85668674b5d2f56fcd126f290c2"
+    }
+  ]
+}

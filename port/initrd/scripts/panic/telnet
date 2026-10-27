@@ -1,0 +1,8 @@
+#!/bin/sh
+[ "$1" = prereqs ] && exit 0
+/bin/a05bd-usb
+while :; do
+ echo A05BD_INITRD_PANIC
+ dmesg | tail -n 120
+ /bin/sh -i
+done < /dev/ttyGS0 > /dev/ttyGS0 2>&1

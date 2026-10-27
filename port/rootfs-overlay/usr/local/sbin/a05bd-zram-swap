@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+# The minimal Android HAL does not initialize zram. Keep Ubuntu's existing
+# zram-touch service, configure 2 GiB of compressed RAM without eMMC backing.
+if grep -q '^/dev/zram0 ' /proc/swaps; then exit 0; fi
+test -b /dev/zram0
+test "$(cat /sys/block/zram0/disksize)" = 0
+echo lz4 > /sys/block/zram0/comp_algorithm
+echo 2147483648 > /sys/block/zram0/disksize
+/usr/sbin/mkswap --label a05bd-zram /dev/zram0
+/usr/sbin/swapon --priority 100 /dev/zram0
+grep -q '^/dev/zram0 ' /proc/swaps

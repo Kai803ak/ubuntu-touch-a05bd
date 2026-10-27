@@ -1,0 +1,22 @@
+{
+  "zip_name": "a05bd-ubuntu-touch-24.04-20261027-rc3.zip",
+  "zip_bytes": 2904897818,
+  "zip_sha256": "808854c2fc2ee3f412bd66bd8a444e7774e5b69c817da148da7151151b67856a",
+  "parts": [
+    {
+      "name": "a05bd-ubuntu-touch-24.04-20261027-rc3.zip.part01",
+      "bytes": 1073741824,
+      "sha256": "623cd0da1155b2d324c8128883552f956ce68f6f4dc5ffa14567fbf6a4c1d853"
+    },
+    {
+      "name": "a05bd-ubuntu-touch-24.04-20261027-rc3.zip.part02",
+      "bytes": 1073741824,
+      "sha256": "2960ff6eec141a57eaf4ea69133e5bc170ecb5a494397caa85ca1d006ee88a1b"
+    },
+    {
+      "name": "a05bd-ubuntu-touch-24.04-20261027-rc3.zip.part03",
+      "bytes": 757414170,
+      "sha256": "0f9014c46ef1417047b5d878def9e1f3eaf952462c35f7a96263ff0aebf92777"
+    }
+  ]
+}
