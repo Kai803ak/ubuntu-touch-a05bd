@@ -1,0 +1,122 @@
+[
+  {
+    "name": "CHARGER-NOTICE.txt",
+    "bytes": 1055,
+    "sha256": "c547c005032e429ea8e5aabebac46a2c07a4700a01ced0e7c5a3897414b83a67"
+  },
+  {
+    "name": "INSTALL-TWRP.md",
+    "bytes": 2876,
+    "sha256": "643613de67d801e2ada3bb238ef9a2192e737c45bef22982b70d0de938d33353"
+  },
+  {
+    "name": "LICENSES.txt",
+    "bytes": 14643057,
+    "sha256": "334175cccb74fac6f570027386f5a554dcebe454b67a6379598bc597cc06a5e0"
+  },
+  {
+    "name": "README.md",
+    "bytes": 2562,
+    "sha256": "820b29e78af1457245a71d70c79d9ab28a265a3a90e4938583eaac108bc8ec10"
+  },
+  {
+    "name": "a05bd-twrp-r11-and-installer-r2-sources.tar.gz",
+    "bytes": 9555129,
+    "sha256": "578e1cef4daadb6ada7e9b7da57761c71310619d82a4bac3f20beca081db01c6"
+  },
+  {
+    "name": "a05bd-ubuntu-touch-rc4-twrp-clean-install-r2-20261104.zip",
+    "bytes": 1576350692,
+    "sha256": "54209f5565d4c5e7992e01ecf6021eaffe499ba0aeee13fde67724997e272bd7"
+  },
+  {
+    "name": "a05bd-ubuntu-touch-rc4-twrp-update-r2-20261104.zip",
+    "bytes": 1576350693,
+    "sha256": "63d8d4a1359e17c86c5231e7f1ae58abf985213c353c7a22f2e3f45c0a35adf7"
+  },
+  {
+    "name": "charging-regression.json",
+    "bytes": 733,
+    "sha256": "8160f47c93f7783713d46e2c7ab074d3ef093eed10d9bc9b78496d94dc9a4536"
+  },
+  {
+    "name": "charging-sources.tar.gz",
+    "bytes": 19875,
+    "sha256": "2fee9b9a2bcc893b43ada018cc6ea0c763419e069aa86774b87cfd41adc62331"
+  },
+  {
+    "name": "clean-install-result.json",
+    "bytes": 468,
+    "sha256": "55f5f86003efc3e2db60bdf38edf0ee2a76b809f4641c6250c3ab0ea87da8625"
+  },
+  {
+    "name": "final-normal-state.json",
+    "bytes": 425,
+    "sha256": "f64f8325748e49d9c07ea65c4c81ef87f179c6108f9fd31d32a69ee0a358195e"
+  },
+  {
+    "name": "human-clean-boot-validation.json",
+    "bytes": 145,
+    "sha256": "32c78f61c712431e4a693ca88be0e53caeabbcffe1fcba13b02473607e2687b0"
+  },
+  {
+    "name": "image-verification.json",
+    "bytes": 2498,
+    "sha256": "abc155a3cce4c7405e7c08654344b981db7a4b523fc03778f10f42438f25a4c3"
+  },
+  {
+    "name": "normal-clean-boot.json",
+    "bytes": 1045,
+    "sha256": "b9fd4c8eb4af88262df4a5ffaa11a3237e48831a0ddab310cab8796d3a3505eb"
+  },
+  {
+    "name": "package-results.json",
+    "bytes": 856,
+    "sha256": "e338c828a9cfe8dc4546a8083cb72f85b4457d9304ff3af03572f65cdeaa5a23"
+  },
+  {
+    "name": "package-verification.json",
+    "bytes": 682,
+    "sha256": "b19f004a331c70815b1d468b60c2e12f0b00b4aded82d0e51183e95d9b455ad3"
+  },
+  {
+    "name": "post-clean-verification.json",
+    "bytes": 249,
+    "sha256": "c2ecd6ec3407057bf72da34404f4edc058da85c00a95fa89f5b9d3d1c3f36e5c"
+  },
+  {
+    "name": "python-runtime-corresponding-sources.tar.gz",
+    "bytes": 98137734,
+    "sha256": "d33f995a4100b1341e0c4eaa592c4c01a464db703df739c9e7235e07b0c4dedf"
+  },
+  {
+    "name": "r11-avb-wrapper.json",
+    "bytes": 312,
+    "sha256": "55467116883b936cbd1361e5288bc8c6bdad2e41a30ff287fed0f02f065e967d"
+  },
+  {
+    "name": "r11-manifest-pinned.xml",
+    "bytes": 51021,
+    "sha256": "673eb5df30f1a4dbf2ffc62647cebc4bddc1eb7e1117ffac30f1efd15e1b71fa"
+  },
+  {
+    "name": "r11-real-auto-adb.json",
+    "bytes": 549,
+    "sha256": "b3e723f4075504874051e4484ad94a70c795f5304cf2196094a92eea64b42cce"
+  },
+  {
+    "name": "r11-recovery-validation.json",
+    "bytes": 601,
+    "sha256": "592799c14fae28db0a3b25c58250611eabe9453197ca0fcc25775d0872bcea48"
+  },
+  {
+    "name": "recovery-a05bd-ut-r11-avb.img",
+    "bytes": 16777216,
+    "sha256": "047ae969f79adc7bfd290e79da76985f2db3e74b58702b507bcce34e66406928"
+  },
+  {
+    "name": "report.md",
+    "bytes": 5170,
+    "sha256": "9188bb55aecdfa9dfe055a10eb7842473aec705875cb5d9817db5d6f87a077f5"
+  }
+]

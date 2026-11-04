@@ -1,0 +1,15 @@
+{
+  "actual_twrp_clean_install_passed": true,
+  "state": {
+    "phase": "ALL_WRITTEN_IMAGES_READBACK_VERIFIED",
+    "clean": true,
+    "full_backup": false
+  },
+  "package_sha256": "54209f5565d4c5e7992e01ecf6021eaffe499ba0aeee13fde67724997e272bd7",
+  "data_erased_as_requested": true,
+  "seconds": 500.0,
+  "reboot_not_yet_tested": false,
+  "normal_boot_verified": true,
+  "human_initial_setup_touch_japanese_next_passed": true,
+  "charging_regression_passed": true
+}

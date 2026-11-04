@@ -1,0 +1,10 @@
+[Unit]
+Description=A05BD charging watchdog keepalive
+DefaultDependencies=no
+Conflicts=shutdown.target
+Before=shutdown.target
+
+[Service]
+ExecStart=/usr/local/sbin/a05bd-charge-watchdog
+Restart=always
+RestartSec=1

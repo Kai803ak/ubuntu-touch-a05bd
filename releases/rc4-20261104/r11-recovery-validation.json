@@ -1,0 +1,17 @@
+{
+  "image": "recovery-a05bd-ut-r11.img",
+  "bytes": 16115712,
+  "sha256": "cae9483c779cc994bd100e58637b38bddaf38403bf53559c26fca9bd556c8c69",
+  "partition_bytes": 16777216,
+  "free_bytes": 661504,
+  "kernel_sha256": "bfb501fe4aba8eb573759403138e90f344970fa55514a35070e1a0f37e10f446",
+  "dtbo_sha256": "e3f6c95f11b31487b749e1314b40da78ab4ec4c1eaf9108d1504803a530007ea",
+  "ramdisk_entries": 446,
+  "arm64_binaries_checked": [
+    "recovery",
+    "adbd",
+    "a05bd_recovery_watchdog"
+  ],
+  "scope": "Static R11 validation; device installation results recorded separately",
+  "device_tested": false
+}

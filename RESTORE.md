@@ -1,3 +1,5 @@
+> この文書はRC3のPC導入方式の資料です。RC4/TWRP方式は [INSTALL-TWRP.md](INSTALL-TWRP.md) を参照してください。
+
 # 復元手順
 
 復元には、対象端末自身の`a05bd-private-backup`を使います。他人の全eMMC/GPT/NVRAMを使用しません。インストール失敗後も、バックアップと`backup.json`、元の`original-boot.img`を保存してください。

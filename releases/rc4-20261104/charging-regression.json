@@ -1,0 +1,24 @@
+{
+  "post_clean_charging_boot_passed": true,
+  "boot_id": "72ff5622-f383-421b-8f8c-fddd9dc14ca1",
+  "bootmode": 8,
+  "active": [
+    "a05bd-charger.target",
+    "a05bd-android-charger",
+    "a05bd-charge-watchdog",
+    "a05bd-usb-console"
+  ],
+  "inactive": [
+    "lightdm",
+    "lxc@android"
+  ],
+  "capacity_percent": 99,
+  "battery_status": "Charging",
+  "battery_health": "Good",
+  "backlight_after_timeout": 0,
+  "failed_units": 0,
+  "ui_visual_confirmation": "percent/short-wake/long-boot were human-confirmed before packaging; post-clean test here is service/battery/backlight regression",
+  "epoch": 1793783479.400361,
+  "normal_return_after_charge_passed": true,
+  "normal_boot_id": "7f5c48d6-ffc1-4df4-b4c9-9d0631d58234"
+}

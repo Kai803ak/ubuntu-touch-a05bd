@@ -1,0 +1,10 @@
+{
+  "bytes": 16777216,
+  "sha256": "047ae969f79adc7bfd290e79da76985f2db3e74b58702b507bcce34e66406928",
+  "raw_r11_prefix_unchanged": true,
+  "original_image_bytes": 16115712,
+  "vbmeta_offset": 16117760,
+  "vbmeta_bytes": 512,
+  "algorithm": "NONE; unlocked device only",
+  "avbtool_verify_image_passed": true
+}

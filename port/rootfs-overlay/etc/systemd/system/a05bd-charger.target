@@ -1,0 +1,9 @@
+[Unit]
+Description=A05BD native offline charging
+DefaultDependencies=no
+Requires=a05bd-android-charger.service
+Wants=a05bd-usb-console.service a05bd-charge-watchdog.service systemd-udevd.service systemd-journal-flush.service
+After=a05bd-android-charger.service
+Conflicts=shutdown.target
+Before=shutdown.target
+AllowIsolate=yes

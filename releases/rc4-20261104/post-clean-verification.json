@@ -1,0 +1,8 @@
+{
+  "normal_boot_full_sha_verified": true,
+  "twrp_recovery_full_sha_verified": true,
+  "gpt_primary_secondary_unchanged": true,
+  "usb_aio_data_drop_messages": 0,
+  "system_userdata_full_readback_by_installer": true,
+  "epoch": 1793782944.654311
+}

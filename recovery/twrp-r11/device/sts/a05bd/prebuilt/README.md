@@ -1,0 +1,1 @@
+Prebuilt kernel/DTBO are included in the R11 source archive attached to the RC4 Release. Copy twrp-r11/device/sts/a05bd/prebuilt/{kernel,dtbo.img} from that archive here and verify SHA256SUMS. The matching kernel #6 source archive is retained in the RC3 Release. No new kernel or DTBO patch is introduced by R11.

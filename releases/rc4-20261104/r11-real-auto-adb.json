@@ -1,0 +1,13 @@
+{
+  "automatic_usb_adb": true,
+  "bootmode": 2,
+  "aio_compat": true,
+  "runtime_init_files_sha_verified": {
+    "/init.recovery.mt8168.rc": "abce6850f042cef8ea46aa121e264e93ce422de3fae9f659fa1d4f510a3c2de8",
+    "/init.rc": "dcd7888546638abbeae4ceb208a6977e0f31887b1b62330318e102eaeb5a79f5"
+  },
+  "full_recovery_readback_verified": true,
+  "normal_boot_full_readback_verified": true,
+  "build_property_note": "incremental build kept R9 version string; R11 identity verified by init-file hashes and full image SHA",
+  "epoch": 1793781940.9879959
+}

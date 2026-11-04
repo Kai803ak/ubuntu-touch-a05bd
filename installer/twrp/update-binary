@@ -1,0 +1,21 @@
+#!/sbin/sh
+# SPDX-License-Identifier: GPL-3.0-only
+# TWRP passes: API_VERSION OUTFD ZIPFILE.
+set -eu
+outfd="$2"
+package="$3"
+ui() { printf 'ui_print %s\nui_print\n' "$*" >"/proc/self/fd/$outfd"; }
+ui 'Preparing A05BD Ubuntu Touch installer in RAM...'
+base="$(mktemp -d /tmp/a05bd-zip.XXXXXX)"
+trap 'rm -rf "$base"' EXIT
+unzip -p "$package" installer-runtime.tar.gz | tar -xz -C "$base"
+test -f "$base/flash.py"
+test -f "$base/payload-manifest.json"
+export PYTHONHOME="$base/runtime/usr"
+export PYTHONNOUSERSITE=1 PYTHONDONTWRITEBYTECODE=1
+unset PYTHONPATH LD_PRELOAD LD_LIBRARY_PATH
+loader="$base/runtime/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1"
+test -f "$loader" || loader="$base/runtime/lib/ld-linux-aarch64.so.1"
+chmod 755 "$loader" "$base/runtime/usr/bin/python3.12"
+"$loader" --library-path "$base/runtime/usr/lib/aarch64-linux-gnu:$base/runtime/lib/aarch64-linux-gnu" \
+    "$base/runtime/usr/bin/python3.12" -S -B "$base/flash.py" "$outfd" "$package" "$base/payload-manifest.json"

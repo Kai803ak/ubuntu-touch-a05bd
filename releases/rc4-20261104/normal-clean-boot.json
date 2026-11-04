@@ -1,0 +1,29 @@
+{
+  "clean_install_package_sha256": "54209f5565d4c5e7992e01ecf6021eaffe499ba0aeee13fde67724997e272bd7",
+  "actual_twrp_clean_install": true,
+  "system_userdata_full_readback_verified": true,
+  "normal_ubuntu_boot": true,
+  "root_device": "/dev/mmcblk0p28",
+  "bootmode": 0,
+  "boot_id": "125470da-31d5-450c-9ded-85d56429cb18",
+  "normal_services_active": [
+    "lightdm",
+    "repowerd",
+    "NetworkManager",
+    "lxc@android"
+  ],
+  "failed_units": 0,
+  "zram_bytes": 2147479552,
+  "charger_and_generator_binary_hashes_match": true,
+  "wifi_start_result": "success; wlan0 present/disconnected with fresh data",
+  "wifi_ap_connection_tested": false,
+  "initial_wizard_marker_absent": true,
+  "human_initial_wizard_check": {
+    "initial_setup_visible": true,
+    "touch_alignment_correct": true,
+    "japanese_next_proceeds": true
+  },
+  "charging_after_clean": "mode8 charger/watchdog active,99% Charging/Good,brightness0,failed0; normal boot returned",
+  "epoch": 1793783134.08659,
+  "final_boot_id": "7f5c48d6-ffc1-4df4-b4c9-9d0631d58234"
+}

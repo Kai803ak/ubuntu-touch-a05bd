@@ -1,0 +1,30 @@
+diff --git a/healthd/healthd_draw.cpp b/healthd/healthd_draw.cpp
+index e4401e3..89b248d 100644
+--- a/healthd/healthd_draw.cpp
++++ b/healthd/healthd_draw.cpp
+@@ -1,3 +1,6 @@
++#include <fcntl.h>
++#include <unistd.h>
++#include <string.h>
+ /*
+  * Copyright (C) 2017 The Android Open Source Project
+  *
+@@ -58,7 +61,17 @@ void HealthdDraw::redraw_screen(const animation* batt_anim, GRSurface* surf_unkn
+   gr_flip();
+ }
+ 
+-void HealthdDraw::blank_screen(bool blank) { gr_fb_blank(blank); }
++// A05BD: panel DPMS and system suspend are separate from LCD backlight.
++// Keep scanning the framebuffer; blank only the backlight for reliable wake.
++void HealthdDraw::blank_screen(bool blank) {
++  const char* value = blank ? "0\n" : "102\n";
++  int fd = open("/sys/class/leds/lcd-backlight/brightness", O_WRONLY | O_CLOEXEC);
++  if (fd < 0) { LOGE("A05BD: cannot open LCD backlight\n"); return; }
++  size_t length = strlen(value);
++  if (write(fd, value, length) != static_cast<ssize_t>(length))
++    LOGE("A05BD: cannot set LCD backlight\n");
++  close(fd);
++}
+ 
+ void HealthdDraw::clear_screen(void) {
+   gr_color(0, 0, 0, 255);

@@ -1,0 +1,19 @@
+[
+  {
+    "name": "a05bd-ubuntu-touch-rc4-twrp-clean-install-r2-20261104.zip",
+    "sha256": "54209f5565d4c5e7992e01ecf6021eaffe499ba0aeee13fde67724997e272bd7",
+    "mode": "clean-install",
+    "embedded_code_matches_tested_source": true,
+    "compressed_and_expanded_images_verified": true,
+    "device_tested": true,
+    "device_result": "clean-install-result.json"
+  },
+  {
+    "name": "a05bd-ubuntu-touch-rc4-twrp-update-r2-20261104.zip",
+    "sha256": "63d8d4a1359e17c86c5231e7f1ae58abf985213c353c7a22f2e3f45c0a35adf7",
+    "mode": "update",
+    "embedded_code_matches_tested_source": true,
+    "compressed_and_expanded_images_verified": true,
+    "device_tested": false
+  }
+]

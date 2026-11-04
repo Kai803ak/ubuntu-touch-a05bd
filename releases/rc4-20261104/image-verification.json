@@ -1,0 +1,66 @@
+{
+  "base": "public RC3 SHA-verified image; no live rootfs or user data copied",
+  "files_readback_verified": [
+    {
+      "path": "/etc/systemd/journald.conf.d/90-a05bd-charger-debug.conf",
+      "sha256": "286e4446308db0960931af975138238f79acc10800446ba7f620bde67d728fc4",
+      "mode": "0o644"
+    },
+    {
+      "path": "/etc/systemd/system-generators/lxc-android-config-charger-generator",
+      "sha256": "a2d21127bb63886d595c3c0f6cae2bdb91bf79b5ed950727d90755d91a8667d9",
+      "mode": "0o755"
+    },
+    {
+      "path": "/etc/systemd/system/a05bd-android-charger.service",
+      "sha256": "1aa1dcae3201ea6a2ee705610da6920cd3c7c1a768bcf4521b00fa81cdb3164b",
+      "mode": "0o644"
+    },
+    {
+      "path": "/etc/systemd/system/a05bd-charge-watchdog.service",
+      "sha256": "9799338b30886eeab40cbb6ecd33de71dd124afc1801bf8542eb040d85dffb37",
+      "mode": "0o644"
+    },
+    {
+      "path": "/etc/systemd/system/a05bd-charger.target",
+      "sha256": "22da301708d4d0d2f7150ee203c6bb6a908fd616ef342ae88426cebcfb7f5125",
+      "mode": "0o644"
+    },
+    {
+      "path": "/usr/local/sbin/a05bd-android-charger",
+      "sha256": "944bff591872210e8a3efa6fcfd836b851ab3890baef4bdf416a315debc976df",
+      "mode": "0o755"
+    },
+    {
+      "path": "/usr/local/sbin/a05bd-charge-watchdog",
+      "sha256": "aa854a86d82b792eb1cc0bf768aefe959a07cf16082be583f039d9c0dbd98c90",
+      "mode": "0o755"
+    },
+    {
+      "path": "/usr/local/share/a05bd-charger/res/images/charger/battery_fail.png",
+      "sha256": "c07efb570e94a69c6f86d7be1ca776825e290135b872c03308a4b2d2f0c3ebd4",
+      "mode": "0o644"
+    },
+    {
+      "path": "/usr/local/share/a05bd-charger/res/images/charger/battery_scale.png",
+      "sha256": "ae960dfdd8ccee097d4021ec7136786da7af9bd36ee2896a7d8134884e7a0f31",
+      "mode": "0o644"
+    },
+    {
+      "path": "/usr/local/share/a05bd-charger/res/images/charger/main_font.png",
+      "sha256": "46f48a517fd98fd29f3102d7348030291aa4975e82e8b22df032a593c3597d2e",
+      "mode": "0o644"
+    },
+    {
+      "path": "/usr/local/share/a05bd-charger/res/values/charger/animation.txt",
+      "sha256": "5920d25c9eee4b07e060aa854571f22aee58575dc949dc63ef5ce611921b44ea",
+      "mode": "0o644"
+    }
+  ],
+  "system_bytes": 6442450944,
+  "system_sha256": "ec6bd18fdbc15bcdaa4ecbf171bab25e1d29851e685cfefefdeeeae011eb815e",
+  "gzip_bytes": 1508093961,
+  "gzip_sha256": "1b1282dbfc9afd31d87e164e936a57175a69590ee9ac0ad02da9af279f6ff81f",
+  "avb_tail_unchanged": true,
+  "e2fsck_exit": 0
+}

@@ -1,0 +1,17 @@
+{
+  "normal_return_after_charge_passed": true,
+  "boot_id": "7f5c48d6-ffc1-4df4-b4c9-9d0631d58234",
+  "bootmode": 0,
+  "normal_services_active": [
+    "lightdm",
+    "repowerd",
+    "NetworkManager",
+    "lxc@android"
+  ],
+  "failed_units": 0,
+  "backlight": 102,
+  "zram_bytes": 2147479552,
+  "no_pending_systemd_jobs": true,
+  "left_in": "Ubuntu initial setup, user data freshly installed",
+  "epoch": 1793783630.8839831
+}

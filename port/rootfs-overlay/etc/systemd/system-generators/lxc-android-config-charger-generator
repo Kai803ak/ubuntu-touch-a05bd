@@ -1,0 +1,17 @@
+#!/bin/sh
+# SPDX-License-Identifier: GPL-3.0-only
+# Override the generic Android charger UI on this port only.
+# Meta/factory modes are not charging modes.
+charging=false
+read -r cmdline </proc/cmdline
+for item in $cmdline; do
+ case "$item" in androidboot.mode=*charger*|androidboot.bootreason=usb) charging=true;; esac
+done
+if [ -r /sys/class/BOOT/BOOT/boot/boot_mode ]; then
+ read -r mode </sys/class/BOOT/BOOT/boot/boot_mode
+ case "$mode" in 8|9) charging=true;; esac
+fi
+if [ -r /proc/bootconfig ] && grep -q 'androidboot.bootreason = "usb"' /proc/bootconfig; then charging=true; fi
+if $charging; then
+ ln -sf /etc/systemd/system/a05bd-charger.target "$2/default.target"
+fi

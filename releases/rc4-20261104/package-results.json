@@ -1,0 +1,19 @@
+[
+  {
+    "name": "a05bd-ubuntu-touch-rc4-twrp-clean-install-r2-20261104.zip",
+    "bytes": 1576350692,
+    "sha256": "54209f5565d4c5e7992e01ecf6021eaffe499ba0aeee13fde67724997e272bd7",
+    "mode": "clean-install",
+    "device_tested": true,
+    "update_binary_sha256": "6e4aba52a3722bd4762042109b79c674a268f4b05cd8275384adf44ff88f9817",
+    "device_test_scope": "Actual TWRP CLI clean install on an already-prepared Ubuntu layout; full system/data readback; BOOT/recovery/GPT verification; normal boot checked separately"
+  },
+  {
+    "name": "a05bd-ubuntu-touch-rc4-twrp-update-r2-20261104.zip",
+    "bytes": 1576350693,
+    "sha256": "63d8d4a1359e17c86c5231e7f1ae58abf985213c353c7a22f2e3f45c0a35adf7",
+    "mode": "update",
+    "device_tested": false,
+    "update_binary_sha256": "6e4aba52a3722bd4762042109b79c674a268f4b05cd8275384adf44ff88f9817"
+  }
+]

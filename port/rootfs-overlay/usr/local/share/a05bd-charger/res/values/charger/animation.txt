@@ -1,0 +1,11 @@
+# A05BD Android9 charger; existing licensed main_font and battery_scale assets.
+# Several short cycles, then backlight off, no deep suspend.
+animation: 5 2 charger/battery_scale
+fail: charger/battery_fail
+percent_display: c -100 255 255 255 255 charger/main_font
+frame: 500 0 19
+frame: 500 0 39
+frame: 500 0 59
+frame: 500 0 79
+frame: 500 80 95
+frame: 500 0 100

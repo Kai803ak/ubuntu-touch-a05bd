@@ -1,0 +1,18 @@
+[Unit]
+Description=A05BD Android charger with percentage and backlight timeout
+DefaultDependencies=no
+After=systemd-remount-fs.service
+Conflicts=shutdown.target
+Before=shutdown.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/sbin/a05bd-android-charger
+BindReadOnlyPaths=/usr/local/share/a05bd-charger/res:/res
+BindPaths=/dev/fb0:/dev/graphics/fb0
+Restart=always
+RestartSec=2
+TimeoutStopSec=5
+UMask=0077
+StandardOutput=journal
+StandardError=journal

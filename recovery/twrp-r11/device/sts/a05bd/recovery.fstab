@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: Apache-2.0
+# Ubuntu-prepared layout only. No GPT, NVRAM, LK, AVB or automatic resize entries.
+/system ext4 /dev/block/mmcblk0p28 flags=display="Ubuntu system";backup=1;wipeingui=0;canbewiped=0;fsflags=ro
+/system_image emmc /dev/block/mmcblk0p28 flags=display="Ubuntu system image";backup=0;wipeingui=0
+/ubuntu-data ext4 /dev/block/mmcblk0p32 flags=display="Ubuntu data";backup=1;wipeingui=0;canbewiped=0;fsflags=ro
+/boot emmc /dev/block/mmcblk0p14 flags=display="Boot";backup=1;wipeingui=0
+/recovery emmc /dev/block/mmcblk0p15 flags=display="Recovery";backup=1;wipeingui=0
+/external_sd auto /dev/block/mmcblk1p1 /dev/block/mmcblk1 flags=storage;removable

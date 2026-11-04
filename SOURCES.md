@@ -1,5 +1,20 @@
 # ソースと再ビルド資料
 
+## RC4 / TWRP R11 / installer R2
+
+RC4はReleaseの`artifacts.json` / `SHA256SUMS` / `image-verification.json`でバイナリーと入力を照合します。
+
+- `recovery/twrp-r11/`：固定manifest、device tree、init修正、AVB hash footerを生成する資料。prebuilt kernel/DTBOはRC4添付source archiveに収録し、Gitにはhashを置きました。kernel #6の完全sourceはRC3 Releaseに保持。
+- `installer/twrp/`：実機で使用したflash.py/layout.py/update-binary R2とruntime package台帳。
+- `port/charging/` / `port/rootfs-overlay/`：Android9 chargerのbacklight patch、watchdog、充電target/units/generator/animation。
+- RC4添付 `a05bd-twrp-r11-and-installer-r2-sources.tar.gz`：R11のbuild入力とR2 installer。
+- RC4添付 `charging-sources.tar.gz`：chargerの固定revision・patch・build入力。
+- RC4添付 `python-runtime-corresponding-sources.tar.gz`：ARM64 Python runtime各packageの対応source。版は `installer/twrp/runtime-packages.tsv`。
+
+build scriptsには元の作業環境のパスや増分build前提が含まれます。新環境での全体再現buildは未検証です。公開checkoutから未変更Ubuntu/UBports/Android全packageを一括で再buildできるという意味ではありません。
+
+## RC3から継承したsource
+
 このRCの`manifest.json`がバイナリーとソースアーカイブのハッシュを対応付けます。ライセンス・使用部品・未確認事項の一覧は**LICENSES.txt**に集約しています。`packages.tsv`はUbuntu/UBportsパッケージのbinary/source版の台帳です。
 
 - `sources/kernel-4.14.87-a05bd-6-source.tar.gz`：実際の#6ビルドに使用したカーネル作業ツリー、最終config、元build script、コンパイラー情報。生成した秘密署名鍵とオブジェクトは除外しています。Image.gzと、別途追加されたDTB/DTBOの由来・生成条件は区別します。
